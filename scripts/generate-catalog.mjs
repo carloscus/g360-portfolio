@@ -129,7 +129,6 @@ function main() {
   const repos = repoDirs.map((dir) => scanRepo(dir, path.basename(dir)));
 
   const catalog = {
-    generatedAt: new Date().toISOString(),
     generator: 'scripts/generate-catalog.mjs',
     count: repos.length,
     repos,
