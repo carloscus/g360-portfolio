@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import { withBase } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Catálogo del ecosistema G360: microherramientas y sistemas de datos para procesos comerciales, ventas, stock y ERP.',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string): boolean =>
+  currentPath === withBase(href) || currentPath.startsWith(`${withBase(href)}/`);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <nav class="container nav" aria-label="Principal">
+        <a class="brand" href={withBase('/')}>G360<span class="brand-accent">·</span>portfolio</a>
+        <div class="nav-links">
+          <a href={withBase('/')} aria-current={isActive('/') ? 'page' : undefined}>Proyectos</a>
+          <a href={withBase('/cv/')} aria-current={isActive('/cv') ? 'page' : undefined}>CV</a>
+        </div>
+      </nav>
+    </header>
+    <main id="contenido">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>Ecosistema G360 — {new Date().getFullYear()} · Carlos Cusi</p>
+      </div>
+    </footer>
+  </body>
+</html>

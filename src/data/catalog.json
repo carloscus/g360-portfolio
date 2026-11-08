@@ -1,0 +1,382 @@
+{
+  "generatedAt": "2026-11-08T01:24:22.894Z",
+  "generator": "scripts/generate-catalog.mjs",
+  "count": 24,
+  "repos": [
+    {
+      "name": "g360-cli",
+      "slug": "g360-cli",
+      "url": "https://github.com/carloscus/g360-cli",
+      "description": "g360 health",
+      "stack": [
+        "Node"
+      ],
+      "category": "infra",
+      "verify": "npm ci && npm test",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-11-07"
+      }
+    },
+    {
+      "name": "g360-day-calculator",
+      "slug": "g360-day-calculator",
+      "url": "https://github.com/carloscus/g360-day-calculator",
+      "description": "Calculadora de dias habiles con feriados peruanos. Calcula dias calendario considerando feriados fijos y moviles (Semana Santa).",
+      "stack": [
+        "Node",
+        "Svelte",
+        "Vite"
+      ],
+      "category": "utilidades",
+      "verify": "npm ci && npm run build && npm run check",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-discount-calculator",
+      "slug": "g360-discount-calculator",
+      "url": "https://github.com/carloscus/g360-discount-calculator",
+      "description": "Aplicación web progresiva (PWA) para calcular descuentos consecutivos y precios de venta con margen/markup. Forma parte de la familia de microherramientas G360 para apoyo CRM y gestión de datos en escritorio.",
+      "stack": [
+        "Node",
+        "Svelte",
+        "Vite"
+      ],
+      "category": "utilidades",
+      "verify": "npm ci && npm run build && npm run check",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-erp-nc-sustentor",
+      "slug": "g360-erp-nc-sustentor",
+      "url": "https://github.com/carloscus/g360_NC_sustentor",
+      "description": "Microherramienta avanzada del ecosistema G360 para la automatización de cuadros de sustento — Notas de Crédito (NC), Débito (NDB), Factura Directa —, reportes analíticos de compras y análisis de ventas CRM.",
+      "stack": [
+        "Python"
+      ],
+      "category": "erp",
+      "verify": "uv sync && uv run pytest",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-11-07"
+      }
+    },
+    {
+      "name": "g360-erp-pedido-vigencias",
+      "slug": "g360-erp-pedido-vigencias",
+      "url": "https://github.com/carloscus/g360-erp-pedido-vigencias",
+      "description": "Dashboard Flet desktop para el analisis de **vigencias de pedidos CIPSA**. Consolida reportes XLS/XLSX del ERP, los enriquece con el catalogo maestro y el stock en tiempo real del API G360, y presenta saldos pendientes, cajas por entregar y alertas de prioridad (incluyendo QC / almacen 121) de forma interactiva y exportable a XLSX con hojas estructuradas.",
+      "stack": [
+        "Python"
+      ],
+      "category": "erp",
+      "verify": "uv sync && uv run pytest",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-10-29"
+      }
+    },
+    {
+      "name": "g360-erp-preorder-allocator",
+      "slug": "g360-erp-preorder-allocator",
+      "url": "https://github.com/carloscus/g360-erp-preorder-allocator",
+      "description": "Analisis de compras y participacion por SKU a partir de reportes ERP",
+      "stack": [
+        "Python"
+      ],
+      "category": "erp",
+      "verify": "uv sync && uv run python -m compileall src",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-erp-price-manager",
+      "slug": "g360-erp-price-manager",
+      "url": null,
+      "description": "Gestor de listas de precios con descuentos en cascada (CIPSA). App de escritorio (Flet) que ingiere excels del ERP, normaliza las columnas, calcula precios y descuentos por categoría, y exporta el resultado.",
+      "stack": [
+        "Python"
+      ],
+      "category": "erp",
+      "verify": "uv sync && uv run pytest",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-erp-stock-consolidator",
+      "slug": "g360-erp-stock-consolidator",
+      "url": "https://github.com/carloscus/g360-stock-color-consolidator",
+      "description": "Consolida stock de colores desde el ERP de CIPSA y exporta a XLSX. Portable v1.2.0 — Flet Polished.",
+      "stack": [
+        "Python"
+      ],
+      "category": "erp",
+      "verify": "uv sync && uv run python -m unittest discover -s src -p \"test*.py\"",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-erp-stock-monitor",
+      "slug": "g360-erp-stock-monitor",
+      "url": "https://github.com/carloscus/g360-stock-monitor",
+      "description": "Monitoreo de stock en tiempo real desde S1 (ERP CIPSA) con visualización por almacenes, líneas de producto y categorías. Incluye detección de transferencias sugeridas entre almacenes con alertas por desbalance y stock crítico.",
+      "stack": [
+        "Python"
+      ],
+      "category": "erp",
+      "verify": "uv sync && uv run python -m compileall src",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-master-data",
+      "slug": "g360-master-data",
+      "url": "https://github.com/carloscus/g360-master-data",
+      "description": "Sistema centralizado de datos maestros para proyectos G360. Genera JSON de catálogo completo desde ERP + SKU_BX + universo de stock.",
+      "stack": [],
+      "category": "infra",
+      "verify": ".\\scripts\\verificar.ps1",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-order-form",
+      "slug": "g360-order-form",
+      "url": "https://github.com/carloscus/g360-order-form",
+      "description": "cd g360-order-form",
+      "stack": [
+        "Node",
+        "React",
+        "Vite"
+      ],
+      "category": "pedidos",
+      "verify": "npm ci && npm run build",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-order-xlsx",
+      "slug": "g360-order-xlsx",
+      "url": "https://github.com/carloscus/g360-order-xlsx",
+      "description": "Aplicación web SolidJS para procesamiento inteligente de cotizaciones ERP/CRM de CIPSA.",
+      "stack": [
+        "Node",
+        "Solid",
+        "Vite"
+      ],
+      "category": "pedidos",
+      "verify": "npm ci && npm test",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-outlook-extractor",
+      "slug": "g360-outlook-extractor",
+      "url": "https://github.com/carloscus/g360-outlook-extractor",
+      "description": "Herramienta profesional de auditoría y extracción de datos MAPI (Outlook). Forma parte de la familia de microherramientas G360 para apoyo CRM y gestión de datos en escritorio.",
+      "stack": [
+        "Node",
+        "Python"
+      ],
+      "category": "utilidades",
+      "verify": "uv sync && uv run python -m compileall src",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-overtime-hours",
+      "slug": "g360-overtime-hours",
+      "url": "https://github.com/carloscus/g360-overtime-hours",
+      "description": "git clone <repository-url> cd g360-overtime-hours",
+      "stack": [],
+      "category": "utilidades",
+      "verify": "pip install -r requirements.lock && python -m compileall src",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-07"
+      }
+    },
+    {
+      "name": "g360-price-audit",
+      "slug": "g360-price-audit",
+      "url": "https://github.com/carloscus/g360-price-audit",
+      "description": "Aplicación corporativa para el levantamiento competitivo de precios y simulación de rentabilidad en la cadena de valor. Forma parte de la familia de microherramientas **G360** para apoyo CRM y gestión estratégica de precios.",
+      "stack": [
+        "Node",
+        "React",
+        "Vite"
+      ],
+      "category": "utilidades",
+      "verify": "npm ci && npm run build && npm run lint",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-return-form",
+      "slug": "g360-return-form",
+      "url": "https://github.com/carloscus/g360-return-form",
+      "description": "Sistema de gestión de devoluciones para CIPSA — SPA construida con SvelteKit 2 + Tailwind 3. Forma parte de la familia de microherramientas G360 para apoyo CRM y gestión de datos en escritorio.",
+      "stack": [
+        "Node",
+        "Svelte",
+        "Vite"
+      ],
+      "category": "utilidades",
+      "verify": "npm ci && npm run build",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-signature",
+      "slug": "g360-signature",
+      "url": "https://github.com/carloscus/g360-signature",
+      "description": "Web component nativo (agnostico de frameworks) para branding G360 - Microherramientas para apoyo CRM y datos en escritorio.",
+      "stack": [
+        "Node",
+        "Python"
+      ],
+      "category": "utilidades",
+      "verify": "uv sync && uv run python -m compileall src",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-signature-creator",
+      "slug": "g360-signature-creator",
+      "url": "https://github.com/carloscus/g360-signature-creator",
+      "description": "Generador de firmas corporativas CIPSA con interfaz moderna. Genera firmas en 4 formatos: Completa, Media, Corta y Mínima (optimizada para Zimbra/Carbonio).",
+      "stack": [
+        "Node",
+        "Solid",
+        "Vite"
+      ],
+      "category": "utilidades",
+      "verify": "npm ci && npm run build && npm run typecheck",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-stock-api",
+      "slug": "g360-stock-api",
+      "url": "https://github.com/carloscus/g360-stock-api",
+      "description": "API REST para datos de stock. Procesa reportes desde la fuente del cliente, los transforma y sirve enriquecidos con catálogo maestro.",
+      "stack": [],
+      "category": "stock",
+      "verify": "pip install -r requirements.lock && pytest",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-10-28"
+      }
+    },
+    {
+      "name": "g360-stock-reporter-lit",
+      "slug": "g360-stock-reporter-lit",
+      "url": "https://github.com/carloscus/g360-stock-reporter",
+      "description": "Sistema de reportes de stock para CIPSA — PWA offline-first con datos en vivo desde API. Desarrollado con Lit Web Components, forma parte del ecosistema G360.",
+      "stack": [
+        "Node",
+        "Lit",
+        "Vite"
+      ],
+      "category": "stock",
+      "verify": "npm ci && npm test",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-11-01"
+      }
+    },
+    {
+      "name": "g360-textofix",
+      "slug": "g360-textofix",
+      "url": "https://github.com/carloscus/g360-textofix",
+      "description": "Corrector de texto para Windows: atajo global, captura de la selección y reemplazo en el lugar.",
+      "stack": [
+        "Python"
+      ],
+      "category": "utilidades",
+      "verify": "uv sync --extra ai && uv run pytest",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-10-26"
+      }
+    },
+    {
+      "name": "g360-ventas-api",
+      "slug": "g360-ventas-api",
+      "url": "https://github.com/carloscus/g360-ventas-api",
+      "description": "Repo: <https://github.com/carloscus/g360-ventas-api>",
+      "stack": [
+        "Go"
+      ],
+      "category": "ventas",
+      "verify": "go build ./... && go test ./...",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-10-24"
+      }
+    },
+    {
+      "name": "g360-ventas-db",
+      "slug": "g360-ventas-db",
+      "url": "https://github.com/carloscus/g360-ventas-db",
+      "description": "Solución de datos orientada al procesamiento y generación de una base de datos derivada a partir de información corporativa de ventas, aislada de la fuente original y enfocada en el área de Consumo Masivo. App de escritorio (Tauri) que captura, limpia y normaliza en SQLite local y sincroniza con **Supabase** para CRM. Forma parte del ecosistema G360.",
+      "stack": [
+        "Rust",
+        "Tauri"
+      ],
+      "category": "ventas",
+      "verify": "cargo build && cargo test",
+      "meta": {
+        "hasTests": true,
+        "lastCommitDate": "2026-11-06"
+      }
+    },
+    {
+      "name": "g360-ventas-pulse",
+      "slug": "g360-ventas-pulse",
+      "url": "https://github.com/carloscus/g360-ventas-pulse",
+      "description": "Cockpit de campo para vendedores — PWA estática (SvelteKit + adapter-static + GitHub Pages). Dashboard diario, radar de recompra granular, ficha comercial completa, análisis de precios con detección de anomalías, stock en tiempo real y búsqueda global. Scaffold heredado de `g360-return-form`; assets PWA de `g360-stock-reporter-lit`.",
+      "stack": [
+        "Node",
+        "Svelte",
+        "Vite"
+      ],
+      "category": "ventas",
+      "verify": "npm ci && npm run build",
+      "meta": {
+        "hasTests": false,
+        "lastCommitDate": "2026-11-01"
+      }
+    }
+  ]
+}

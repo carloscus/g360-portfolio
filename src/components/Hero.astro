@@ -1,0 +1,38 @@
+---
+import { withBase } from '../lib/site';
+
+interface Stat {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  name: string;
+  tagline: string;
+  intro: string;
+  stats: Stat[];
+}
+
+const { name, tagline, intro, stats } = Astro.props;
+---
+
+<section class="hero container">
+  <p class="hero-eyebrow">Ecosistema G360</p>
+  <h1>{name}</h1>
+  <p class="hero-tagline">{tagline}</p>
+  <p class="hero-intro">{intro}</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+    <a class="btn" href={withBase('/cv/')}>Ver CV</a>
+  </div>
+  <dl class="hero-stats">
+    {
+      stats.map((stat) => (
+        <div class="stat">
+          <dt>{stat.label}</dt>
+          <dd>{stat.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

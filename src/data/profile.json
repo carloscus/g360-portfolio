@@ -1,0 +1,57 @@
+{
+  "name": "Carlos Cusi",
+  "username": "carloscus",
+  "tagline": "Ingeniería de datos y microherramientas para ERP",
+  "about": "Desarrollo microherramientas y sistemas de datos para procesos comerciales, ventas y stock en el ecosistema G360: automatizaciones de ERP, APIs, apps de escritorio y sitios estáticos. Priorizo repos autosuficientes —un solo comando deja build y tests en verde— y catálogos de datos como contrato entre proyectos.",
+  "skills": [
+    {
+      "name": "Python",
+      "items": [
+        "Flet",
+        "pytest",
+        "procesamiento de datos ERP",
+        "automatización de Excel/DOCX"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "items": [
+        "React",
+        "Solid",
+        "Svelte",
+        "Astro",
+        "Lit",
+        "Node",
+        "Vite"
+      ]
+    },
+    {
+      "name": "Go",
+      "items": [
+        "APIs REST"
+      ]
+    },
+    {
+      "name": "Rust",
+      "items": [
+        "Tauri",
+        "SQLite local"
+      ]
+    },
+    {
+      "name": "Ingeniería de datos",
+      "items": [
+        "catálogos maestros",
+        "consolidación de stock",
+        "sincronización con Supabase"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/carloscus"
+    }
+  ],
+  "experience": []
+}

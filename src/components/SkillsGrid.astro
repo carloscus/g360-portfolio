@@ -1,0 +1,24 @@
+---
+import type { ProfileSkill } from '../lib/types';
+
+interface Props {
+  skills: ProfileSkill[];
+}
+
+const { skills } = Astro.props;
+---
+
+<div class="skills-grid">
+  {
+    skills.map((group) => (
+      <section class="skill-group">
+        <h3>{group.name}</h3>
+        <ul>
+          {group.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>

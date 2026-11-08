@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillsGrid from '../components/SkillsGrid.astro';
+import profile from '../data/profile.json';
+import type { Profile } from '../lib/types';
+
+const profileData = profile as unknown as Profile;
+const hasExperience = profileData.experience.length > 0;
+---
+
+<BaseLayout title={`CV — ${profileData.name}`} description={profileData.tagline}>
+  <section class="hero container">
+    <p class="hero-eyebrow">CV</p>
+    <h1>{profileData.name}</h1>
+    <p class="hero-tagline">{profileData.tagline}</p>
+    <div class="hero-actions">
+      {
+        profileData.links.map((link) => (
+          <a class="btn btn-primary" href={link.url} rel="noopener noreferrer">
+            {link.label} ↗
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Sobre mí</h2>
+    <p>{profileData.about}</p>
+  </section>
+
+  <section class="section container">
+    <h2>Skills</h2>
+    <SkillsGrid skills={profileData.skills} />
+  </section>
+
+  {
+    hasExperience && (
+      <section class="section container">
+        <h2>Experiencia</h2>
+        {profileData.experience.map((job) => (
+          <article class="skill-group" style="margin-bottom: 1rem;">
+            <h3>
+              {job.role} — {job.company}
+            </h3>
+            <p class="muted">{job.period}</p>
+            <p>{job.summary}</p>
+            <ul>
+              {job.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </section>
+    )
+  }
+
+  <section class="section container">
+    <h2>Contacto</h2>
+    <ul class="link-list">
+      {
+        profileData.links.map((link) => (
+          <li>
+            <a href={link.url} rel="noopener noreferrer">
+              {link.label} — {link.url}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

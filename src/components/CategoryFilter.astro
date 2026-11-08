@@ -1,0 +1,28 @@
+---
+interface CategoryOption {
+  id: string;
+  label: string;
+  count: number;
+}
+
+interface Props {
+  categories: CategoryOption[];
+}
+
+const { categories } = Astro.props;
+const total = categories.reduce((acc, category) => acc + category.count, 0);
+---
+
+<div class="filter" role="group" aria-label="Filtrar proyectos por categoría">
+  <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">
+    Todos <span class="filter-count">{total}</span>
+  </button>
+  {
+    categories.map((category) => (
+      <button class="filter-btn" type="button" data-filter={category.id} aria-pressed="false">
+        {category.label} <span class="filter-count">{category.count}</span>
+      </button>
+    ))
+  }
+  <span class="filter-result" data-filter-result aria-live="polite"></span>
+</div>

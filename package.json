@@ -1,0 +1,29 @@
+{
+  "name": "g360-portfolio",
+  "version": "0.1.0",
+  "description": "Catálogo/portafolio estático del ecosistema G360: 24 repos con secciones de CV.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Carlos Cusi",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "catalog": "node scripts/generate-catalog.mjs",
+    "test": "vitest run",
+    "verify": "npm run check && npm test && npm run build"
+  },
+  "dependencies": {
+    "astro": "^7.4.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "typescript": "6.0.3",
+    "vitest": "5.1.0"
+  }
+}

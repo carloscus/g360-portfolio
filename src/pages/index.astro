@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { CATALOG, countByCategory } from '../lib/catalog';
+import profile from '../data/profile.json';
+import type { Profile } from '../lib/types';
+
+const repos = CATALOG.repos;
+const profileData = profile as unknown as Profile;
+const categories = countByCategory(repos);
+
+const withTests = repos.filter((repo) => repo.meta.hasTests).length;
+const languages = new Set<string>();
+for (const repo of repos) {
+  for (const item of repo.stack) {
+    if (item === 'Node' || item === 'Python' || item === 'Go' || item === 'Rust') languages.add(item);
+  }
+}
+
+const stats = [
+  { label: 'Proyectos', value: String(repos.length) },
+  { label: 'Categorías', value: String(categories.length) },
+  { label: 'Lenguajes', value: String(languages.size) },
+  { label: 'Con tests', value: String(withTests) },
+];
+
+const intro =
+  `Catálogo de ${repos.length} microherramientas y sistemas de datos para procesos comerciales, ` +
+  'ventas, stock y ERP. Cada repo es autosuficiente: un solo comando deja build y tests en verde.';
+---
+
+<BaseLayout title={`${profileData.name} — Catálogo G360`}>
+  <Hero name={profileData.name} tagline={profileData.tagline} intro={intro} stats={stats} />
+
+  <section id="proyectos" class="section container">
+    <div class="section-head">
+      <h2>Proyectos</h2>
+      <p class="section-sub">
+        Generado desde el disco con <code>npm run catalog</code> — el catálogo de cada repo incluye
+        stack, categoría y comando de verificación declarado en su AGENTS.md.
+      </p>
+    </div>
+
+    <CategoryFilter categories={categories} />
+
+    <div class="grid">
+      {repos.map((repo) => <ProjectCard repo={repo} />)}
+    </div>
+    <p class="empty-note" data-empty hidden>No hay proyectos en esta categoría.</p>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-category]'));
+  const result = document.querySelector<HTMLElement>('[data-filter-result]');
+  const emptyNote = document.querySelector<HTMLElement>('[data-empty]');
+
+  function applyFilter(filter: string): void {
+    let visible = 0;
+    for (const card of cards) {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.hidden = !show;
+      if (show) visible += 1;
+    }
+    for (const button of buttons) {
+      const active = button.dataset.filter === filter;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    }
+    if (result) result.textContent = `${visible} proyecto${visible === 1 ? '' : 's'}`;
+    if (emptyNote) emptyNote.hidden = visible > 0;
+  }
+
+  for (const button of buttons) {
+    button.addEventListener('click', () => applyFilter(button.dataset.filter ?? 'all'));
+  }
+</script>

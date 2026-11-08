@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CATALOG, categoryLabel } from '../../lib/catalog';
+import { withBase } from '../../lib/site';
+import type { CatalogRepo } from '../../lib/types';
+
+export function getStaticPaths() {
+  return CATALOG.repos.map((repo) => ({
+    params: { slug: repo.slug },
+    props: { repo },
+  }));
+}
+
+interface Props {
+  repo: CatalogRepo;
+}
+
+const { repo } = Astro.props;
+---
+
+<BaseLayout title={`${repo.name} — G360`} description={repo.description ?? undefined}>
+  <article class="container">
+    <a class="back-link" href={withBase('/')}>← Volver al catálogo</a>
+
+    <header class="detail-head" style="margin-top: 1rem;">
+      <h1>{repo.name}</h1>
+      <div class="detail-meta">
+        <span class="chip">{categoryLabel(repo.category)}</span>
+        {repo.stack.map((item) => <span class="stack-item">{item}</span>)}
+      </div>
+    </header>
+
+    <section class="detail-section">
+      <h2>Descripción</h2>
+      <p>{repo.description ?? 'Sin descripción en el README del repo.'}</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Verificación</h2>
+      <p class="section-sub">Comando declarado en el AGENTS.md del repo.</p>
+      {
+        repo.verify ? (
+          <pre class="code-block"><code>{repo.verify}</code></pre>
+        ) : (
+          <p class="muted">No declarado en el AGENTS.md.</p>
+        )
+      }
+    </section>
+
+    <section class="detail-section">
+      <h2>Ficha</h2>
+      <dl class="fact-list">
+        <div>
+          <dt>Último commit</dt>
+          <dd>{repo.meta.lastCommitDate ?? '—'}</dd>
+        </div>
+        <div>
+          <dt>Tests</dt>
+          <dd>{repo.meta.hasTests ? 'Sí' : 'No detectados'}</dd>
+        </div>
+        <div>
+          <dt>Repositorio</dt>
+          <dd>
+            {
+              repo.url ? (
+                <a href={repo.url} rel="noopener noreferrer">
+                  {repo.url}
+                </a>
+              ) : (
+                'Sin remote público'
+              )
+            }
+          </dd>
+        </div>
+      </dl>
+    </section>
+  </article>
+</BaseLayout>
